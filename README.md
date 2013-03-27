@@ -10,7 +10,7 @@ Park Place Commerce is built from the ground up for simplicity and flexibility. 
   5. b2c : An eCommerce website for consumers.
 
 # License
-You may use any Park Place Commerce under the terms of the [MIT License](http://en.wikipedia.org/wiki/MIT_License "Title").
+You may use any Park Place Commerce under the terms of the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 
 Copyright 2013 Emerald Code and other contributors
 http://www.emeraldcode.com
