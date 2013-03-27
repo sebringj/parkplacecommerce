@@ -13,7 +13,9 @@ Park Place Commerce is built from the ground up for simplicity and flexibility. 
 You may use any Park Place Commerce under the terms of the MIT License.
 
 Copyright 2013 Emerald Code and other contributors
-http://You may use any jQuery project under the terms of the MIT License.emeraldcode.com/
+http://www.emeraldcode.com
+
+You may use Park Place Commerce under the terms of the MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
