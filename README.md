@@ -8,11 +8,12 @@ Park Place Commerce is built from the ground up for simplicity and flexibility. 
   3. manager : A multi-tenant business management portal.
   4. b2b : An eCommerce website for business-to-business ordering.
   5. b2c : An eCommerce website for consumers.
+
 # License
 You may use any Park Place Commerce under the terms of the MIT License.
 
 Copyright 2013 Emerald Code and other contributors
-http://emeraldcode.com/
+http://You may use any jQuery project under the terms of the MIT License.emeraldcode.com/
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
