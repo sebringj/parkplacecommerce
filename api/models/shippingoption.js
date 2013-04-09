@@ -1,9 +1,9 @@
 var mongoose = require('../lib/mongoose.js').mongoose;
 
-var paymentSchema = mongoose.Schema({
+var shippingOptionSchema = mongoose.Schema({
 	name: String,
 	code : String,
 	countries : [String]
 });
 
-exports = mongoose.model('Payment',paymentSchema);
+exports = mongoose.model('ShippingOption', shippingOptionSchema);
