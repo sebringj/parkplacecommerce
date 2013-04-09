@@ -1,4 +1,4 @@
-var mongoose = require('../lib/mongoose.js').mongoose;
+var mongoose = require('../lib/mongoose.js');
 
 var shippingOptionSchema = mongoose.Schema({
 	name: String,
@@ -6,4 +6,4 @@ var shippingOptionSchema = mongoose.Schema({
 	countries : [String]
 });
 
-exports = mongoose.model('ShippingOption', shippingOptionSchema);
+module.exports = mongoose.model('ShippingOption', shippingOptionSchema);

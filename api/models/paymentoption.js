@@ -1,4 +1,4 @@
-var mongoose = require('../lib/mongoose.js').mongoose;
+var mongoose = require('../lib/mongoose.js');
 
 var paymentOptionSchema = mongoose.Schema({
 	name: String,
@@ -6,4 +6,4 @@ var paymentOptionSchema = mongoose.Schema({
 	countries : [String]
 });
 
-exports = mongoose.model('PaymentOption',paymentOptionSchema);
+module.exports = mongoose.model('PaymentOption', paymentOptionSchema);

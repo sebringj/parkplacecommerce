@@ -1,4 +1,4 @@
-var mongoose = require('../lib/mongoose.js').mongoose;
+var mongoose = require('../lib/mongoose.js')
 
 var apiUserSchema = mongoose.Schema({
 	name: String,
@@ -9,4 +9,4 @@ var apiUserSchema = mongoose.Schema({
 	permissions : [String]
 });
 
-exports = mongoose.model('ApiUser', apiUserSchema);
+module.exports = mongoose.model('ApiUser', apiUserSchema);

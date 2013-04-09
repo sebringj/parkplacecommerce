@@ -7,4 +7,4 @@ db.once('open', function callback () {
   console.log('db open');
 });
 
-exports.mongoose = mongoose;
+module.exports = mongoose;

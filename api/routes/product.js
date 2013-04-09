@@ -1,6 +1,6 @@
 var views = require('../views');
 
-exports.setRoutes = function(app) {
+module.exports.setRoutes = function(app) {
 	app.get('/products', views.product.getProducts);
 	app.get('/products/:id', views.product.getSpecificProduct);
 	app.post('/products', views.product.addNewProduct);

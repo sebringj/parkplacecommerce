@@ -1,5 +1,5 @@
 exports.Product = require('./product.js');
 exports.Catalog = require('./catalog.js');
-exports.Shipping = require('./shipping.js');
-exports.Payment = require('./payment.js');
+exports.ShippingOption = require('./shippingoption.js');
+exports.PaymentOption = require('./paymentoption.js');
 exports.ApiUser = require('./apiuser.js');

@@ -1,4 +1,4 @@
-var mongoose = require('../lib/mongoose.js').mongoose,
+var mongoose = require('../lib/mongoose.js'),
 	Product = require('./product.js'),
 	ShippingOption = require('./shippingoption.js'),
 	PaymentOption = require('./paymentoption.js');
@@ -10,4 +10,4 @@ var catalogSchema = mongoose.Schema({
 	paymentOptions : [PaymentOption]
 });
 
-exports = mongoose.model('Catalog',catalogSchema);
+module.exports = mongoose.model('Catalog',catalogSchema);

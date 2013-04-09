@@ -1,7 +1,7 @@
-var mongoose = require('../lib/mongoose.js').mongoose;
+var mongoose = require('../lib/mongoose.js');
 
 var productSchema = mongoose.Schema({
 	name: String
 });
 
-exports = mongoose.model('Product',productSchema);
+module.exports = mongoose.model('Product', productSchema);
