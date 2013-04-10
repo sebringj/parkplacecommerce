@@ -5,9 +5,9 @@ var mongoose = require('../lib/mongoose.js'),
 
 var catalogSchema = mongoose.Schema({
 	name : String,
-	products : [Product],
-	shippingOptions : [ShippingOption],
-	paymentOptions : [PaymentOption]
+	products : [mongoose.Schema.Types.ObjectId],
+	shippingOptions : [mongoose.Schema.Types.ObjectId],
+	paymentOptions : [mongoose.Schema.Types.ObjectId]
 });
 
-module.exports = mongoose.model('Catalog',catalogSchema);
+module.exports = mongoose.model('Catalog', catalogSchema);
