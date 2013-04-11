@@ -1,6 +1,7 @@
 var mongoose = require('../lib/mongoose.js');
 
 var productSchema = mongoose.Schema({
+	businessid : mongoose.Schema.Types.ObjectId,
 	name: String,
 	wholesale : Number,
 	msrp : Number,

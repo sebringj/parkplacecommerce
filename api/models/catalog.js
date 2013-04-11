@@ -4,6 +4,7 @@ var mongoose = require('../lib/mongoose.js'),
 	PaymentOption = require('./paymentoption.js');
 
 var catalogSchema = mongoose.Schema({
+	businessid : mongoose.Schema.Types.ObjectId,
 	name : String,
 	products : [mongoose.Schema.Types.ObjectId],
 	shippingOptions : [mongoose.Schema.Types.ObjectId],
