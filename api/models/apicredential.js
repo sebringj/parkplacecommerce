@@ -5,7 +5,9 @@ var apiCredentialSchema = mongoose.Schema({
 	publicKey : String,
 	privateKey : String,
 	approved : Boolean,
-	apipermissions : [mongoose.Schema.Types.ObjectId],
+	
+	// contains a collection of ApiPermission 
+	apipermissions : [mongoose.Schema.Types.Mixed]
 });
 
 module.exports = mongoose.model('ApiCredential', apiCredentialSchema);
