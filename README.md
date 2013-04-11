@@ -7,10 +7,11 @@ The problem with most open source eCommerce systems is they grow very large over
 
 ## The Solution
   1. **api** v0.0 : REST API website that is the gatekeeper of all business logic, data and security.
-  2. **admin** v0.0 : Stand alone website that centrally controls API access.
-  3. **manager** v0.0 : A multi-tenant web app management portal.
-  4. **b2b** v0.0 : An eCommerce web app for business-to-business ordering.
-  5. **b2c** v.0.0 : An eCommerce website for consumers.
+  2. **jsapi** v0.0 : A client-side JavaScript library to enable simple setup of external B2C or B2B websites
+  3. **admin** v0.0 : Stand alone website that centrally controls API access.
+  4. **manager** v0.0 : A multi-tenant web app management portal.
+  5. **b2b** v0.0 : An eCommerce web app for business-to-business ordering.
+  6. **b2c** v.0.0 : An eCommerce website for consumers.
 
 Park Place Commerce is designed to be an API first to accommodate any platform that is able to consume it.
 
