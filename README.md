@@ -1,16 +1,18 @@
 # Park Place Commerce
 open source eCommerce B2B and B2C built with node.js, redis and mongodb
+
+This is in its ea
 ## Overview
 Park Place Commerce is built from the ground up for simplicity, flexibility, and modularity. 
 
 The problem with typical open source eCommerce systems is they grow very large and become intimidating to approach over time. Also, eCommerce systems shouldn't lock you down to a server-side technology. We aim to avoid this by breaking up the solution into smaller websites that are separated by purpose and making the API a first class citizen to allow for any type of consuming app or platform.
 
 ## Websites that comprise the Solution
-  1. **api** : This contains the data model and security logic without any visual interface.
-  2. **admin** : This centrally controls all access and instances.
-  3. **manager** : A multi-tenant business management portal.
-  4. **b2b** : An eCommerce website for business-to-business ordering.
-  5. **b2c** : An eCommerce website for consumers.
+  1. **api** v0.0 : This contains the data model and security logic without any visual interface.
+  2. **admin** v0.0 : This centrally controls all access and instances.
+  3. **manager** v0.0 : A multi-tenant business management portal.
+  4. **b2b** v0.0 : An eCommerce website for business-to-business ordering.
+  5. **b2c** v.0.0 : An eCommerce website for consumers.
 
 Park Place Commerce is designed to be an API first to accommodate any platform that is able to consume it.
 
