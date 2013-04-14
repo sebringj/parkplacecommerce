@@ -1,27 +1,18 @@
-var mongoose = require('../lib/mongoose.js');
+var mongoose = require('../lib/mongoose.js'),
+	shippingAddressSchema = require('./schemas/shippingaddress.js'),
+	attributeSchema = require('./schemas/attribute.js');
 
-var transactionSchema = mongoose.Schema({
-	businessid : mongoose.Schema.Types.ObjectId,
-	customerid : mongoose.Schema.Types.ObjectId,
+var transactionSchema = new mongoose.Schema({
+	business : {type: mongoose.Schema.Types.ObjectId, ref: 'Business'},
+	customer : {type : mongoose.Schema.Types.ObjectId, ref: 'Customer'},
 	date : { type : Date, default: Date.now },
-	shippingoption : [mongoose.Schema.Types.ObjectId],
-	paymentoption : [mongoose.Schema.Types.ObjectId],
-	
-	// paymentdetail: differs from payment gateways greatly
-	paymentdetail : mongoose.Schema.Types.Mixed,
-	
-	shippingaddress : mongoose.Schema.Types.Mixed,
-	productids : [mongoose.Schema.Types.ObjectId],
-	catalogid : mongoose.Schema.Types.ObjectId,
-	
-	// snapshot: copy of referenced data at time of transaction
-	// so history of transaction can be exactly understood
-	// such as actual product data, customer data, shipping etc, not IDs
-	snapshot : {
-		products : [mongoose.Schema.Types.Mixed],
-		catalog : mongoose.Schema.Types.Mixed,
-		customer: mongoose.Schema.Types.Mixed
-	}
+	shippingoptions : [{type: mongoose.Schema.Types.ObjectId, ref : 'ShippingOption'}],
+	paymentoptions : [{type: mongoose.Schema.Types.ObjectId, ref : 'PaymentOption'}],
+	attributes : [attributeSchema],
+	shippingaddress : shippingAddressSchema,
+	products : [{type: mongoose.Schema.Types.ObjectId, ref : 'Product'}],
+	catalog : {type : mongoose.Schema.Types.ObjectId, ref : 'Catalog'},	
+	snapshot : String
 });
 
 module.exports = mongoose.model('Transaction', transactionSchema);

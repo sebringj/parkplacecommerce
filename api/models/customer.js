@@ -1,11 +1,12 @@
-var mongoose = require('../lib/mongoose.js');
+var mongoose = require('../lib/mongoose.js'),
+	shippingAddressSchema = require('./schemas/shippingaddress.js');
 
-var customerSchema = mongoose.Schema({
-	businessid : mongoose.Schema.Types.ObjectId,
+var customerSchema = new mongoose.Schema({
+	business : {type: mongoose.Schema.Types.ObjectId, ref : 'Business'},
 	firstname: String,
 	lastname: String,
 	emailaddresses : [String],
-	shippingaddresses : [mongoose.Schema.Types.Mixed],
+	shippingaddresses : [shippingAddressSchema],
 	paymentmethods : [mongoose.Schema.Types.Mixed]
 });
 

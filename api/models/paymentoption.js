@@ -1,7 +1,7 @@
 var mongoose = require('../lib/mongoose.js');
 
-var paymentOptionSchema = mongoose.Schema({
-	businessid : mongoose.Schema.Types.ObjectId,
+var paymentOptionSchema = new mongoose.Schema({
+	business : {type: mongoose.Schema.Types.ObjectId, ref : 'Business'},
 	name: String,
 	code : String,
 	countries : [String]

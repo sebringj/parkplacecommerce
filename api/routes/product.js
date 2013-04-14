@@ -1,9 +1,9 @@
 var views = require('../views');
 
 module.exports.setRoutes = function(app) {
-	app.get('/products', views.product.getProducts);
-	app.get('/products/:id', views.product.getSpecificProduct);
-	app.post('/products', views.product.addNewProduct);
-	app.put('/products/:id', views.product.updateProduct);
-	app.delete('/products/:id', views.product.deleteProduct);
+	app.get('/products', views.product.get);
+	app.get('/products/:id', views.product.getById);
+	app.post('/products', views.product.add);
+	app.put('/products/:id', views.product.update);
+	app.delete('/products/:id', views.product.delete);
 };

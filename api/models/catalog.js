@@ -1,14 +1,11 @@
-var mongoose = require('../lib/mongoose.js'),
-	Product = require('./product.js'),
-	ShippingOption = require('./shippingoption.js'),
-	PaymentOption = require('./paymentoption.js');
+var mongoose = require('../lib/mongoose.js');
 
-var catalogSchema = mongoose.Schema({
-	businessid : mongoose.Schema.Types.ObjectId,
+var catalogSchema = new mongoose.Schema({
+	business : {type : mongoose.Schema.Types.ObjectId, ref : 'Business'},
 	name : String,
-	products : [mongoose.Schema.Types.ObjectId],
-	shippingOptions : [mongoose.Schema.Types.ObjectId],
-	paymentOptions : [mongoose.Schema.Types.ObjectId]
+	products : [{type : mongoose.Schema.Types.ObjectId, ref : 'Product'}],
+	shippingOptions : [{type: mongoose.Schema.Types.ObjectId, ref : 'ShippingOption'}],
+	paymentOptions : [{type: mongoose.Schema.Types.ObjectId, ref : 'PaymentOption'}]
 });
 
 module.exports = mongoose.model('Catalog', catalogSchema);

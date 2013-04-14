@@ -1,13 +1,59 @@
-var mongoose = require('../lib/mongoose.js');
-
-var apiCredentialSchema = mongoose.Schema({
-	name: String,
-	publicKey : String,
-	privateKey : String,
-	approved : Boolean,
+var mongoose = require('../lib/mongoose.js'),
+	apiPermissionSchema = require('./schemas/apipermission.js');
 	
-	// contains a collection of ApiPermission 
-	apipermissions : [mongoose.Schema.Types.Mixed]
+var apiPermissionSchema = new mongoose.Schema({
+	business: {type: mongoose.Schema.Types.ObjectId, ref : 'Business'},
+	permissions : [String]
 });
+
+var apiCredentialSchema = new mongoose.Schema({
+	name: String,
+	publickey : String,
+	privatekey : String,
+	approved : Boolean,
+	apipermissions : [apiPermissionSchema]
+});
+
+var ApiCredential = mongoose.model('ApiCredential', apiCredentialSchema);
+
+apiCredentialSchema.statics.check = function(params, callback) {
+	function validate(apiCredential, callback) {
+		var crypto, hash;
+		
+		if(!apiCredential.approved) {
+			callback({
+				success : false,
+				message : 'notapproved'
+			});
+		}		
+		
+		crypto = require('crypto');
+		hash = crypto.createHmac('sha1', apiCredential.privatekey).update(JSON.stringify(params.jsonObj)).digest('hex');
+		if (hash === params.signature) {
+			callback({
+				success : true,
+				message : 'match',
+				apiPermissions : apiCredential.apipermissions
+			});
+		} else {
+			callback({
+				success : false,
+				message : 'nomatch'
+			});		
+		}
+	}
+	
+	ApiCredential.findOne({'publickey' : params.publickey}, 'name privatekey approved apipermissions', function (err, apiCredential) {
+		if (err) {
+			callback({
+				success : false,
+				message : 'error',
+				err : err
+			});
+		} else {
+			validate(apiCredential, callback);
+		}
+	});
+};
 
 module.exports = mongoose.model('ApiCredential', apiCredentialSchema);

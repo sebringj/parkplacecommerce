@@ -1,15 +1,15 @@
 var models = require('../models');
-exports.getProducts = function(req, res) {
+exports.get = function(req, res) {
 	models.Product.find(function(err, products) {
 		res.json(products);
 	});
 };
-exports.getSpecificProduct = function(req, res) {
+exports.getById = function(req, res) {
 	models.Product.find({_id: req.params.id}, function(err, products) {
 		res.json(products);
 	});
 };
-exports.addNewProduct = function(req, res) {
+exports.add = function(req, res) {
 	var product = new models.Product(req.body);
 	product.save(function(err, product){
 		if (err) {
@@ -19,7 +19,7 @@ exports.addNewProduct = function(req, res) {
 		}
 	});
 };
-exports.updateProduct = function(req, res) {
+exports.update = function(req, res) {
 	var product = req.body;
 	delete product._id;
 	models.Product.update({_id : req.params.id}, product, function(err) {
@@ -30,7 +30,7 @@ exports.updateProduct = function(req, res) {
 		}
 	});
 };
-exports.deleteProduct = function(req, res) {
+exports.delete = function(req, res) {
 	models.Product.remove({ _id: req.body.id }, function(err) {
 	    if (!err) {
 	    	res.json({success : false});

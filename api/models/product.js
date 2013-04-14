@@ -1,11 +1,12 @@
-var mongoose = require('../lib/mongoose.js');
+var mongoose = require('../lib/mongoose.js'),
+	attributeSchema = require('./schemas/attribute.js');
 
-var productSchema = mongoose.Schema({
-	businessid : mongoose.Schema.Types.ObjectId,
+var productSchema = new mongoose.Schema({
+	business : {type: mongoose.Schema.Types.ObjectId, ref: 'Business'},
 	name: String,
 	wholesale : Number,
 	msrp : Number,
-	attributes : [mongoose.Schema.Types.Mixed],
+	attributes : [attributeSchema],
 	imageurls : [String],
 	descriptions : [String],
 	sku : String,
