@@ -1,5 +1,4 @@
-var mongoose = require('../lib/mongoose.js'),
-	apiPermissionSchema = require('./schemas/apipermission.js');
+var mongoose = require('../lib/mongoose.js');
 	
 var apiPermissionSchema = new mongoose.Schema({
 	business: {type: mongoose.Schema.Types.ObjectId, ref : 'Business'},
@@ -56,4 +55,5 @@ apiCredentialSchema.statics.check = function(params, callback) {
 	});
 };
 
-module.exports = mongoose.model('ApiCredential', apiCredentialSchema);
+module.exports.schema = apiCredentialSchema;
+module.exports.model = mongoose.model('ApiCredential', apiCredentialSchema);

@@ -1,16 +1,16 @@
-var models = require('../models');
+var Product = require('../models/product.js').model;
 exports.get = function(req, res) {
-	models.Product.find(function(err, products) {
+	Product.find(function(err, products) {
 		res.json(products);
 	});
 };
 exports.getById = function(req, res) {
-	models.Product.find({_id: req.params.id}, function(err, products) {
+	Product.find({_id: req.params.id}, function(err, products) {
 		res.json(products);
 	});
 };
 exports.add = function(req, res) {
-	var product = new models.Product(req.body);
+	var product = new Product(req.body);
 	product.save(function(err, product){
 		if (err) {
 			res.json(err);
@@ -22,7 +22,7 @@ exports.add = function(req, res) {
 exports.update = function(req, res) {
 	var product = req.body;
 	delete product._id;
-	models.Product.update({_id : req.params.id}, product, function(err) {
+	Product.update({_id : req.params.id}, product, function(err) {
 		if (err) {
 			res.json(err);
 		} else {
@@ -31,7 +31,7 @@ exports.update = function(req, res) {
 	});
 };
 exports.delete = function(req, res) {
-	models.Product.remove({ _id: req.body.id }, function(err) {
+	Product.remove({ _id: req.body.id }, function(err) {
 	    if (!err) {
 	    	res.json({success : false});
 	    }

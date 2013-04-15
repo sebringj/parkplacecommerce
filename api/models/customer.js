@@ -1,5 +1,5 @@
 var mongoose = require('../lib/mongoose.js'),
-	shippingAddressSchema = require('./schemas/shippingaddress.js');
+	shippingAddressSchema = require('./shippingaddress.js').schema;
 
 var customerSchema = new mongoose.Schema({
 	business : {type: mongoose.Schema.Types.ObjectId, ref : 'Business'},
@@ -10,4 +10,5 @@ var customerSchema = new mongoose.Schema({
 	paymentmethods : [mongoose.Schema.Types.Mixed]
 });
 
-module.exports = mongoose.model('Customer', customerSchema);
+module.exports.schema = customerSchema;
+module.exports.model = mongoose.model('Customer', customerSchema);

@@ -8,4 +8,5 @@ var catalogSchema = new mongoose.Schema({
 	paymentOptions : [{type: mongoose.Schema.Types.ObjectId, ref : 'PaymentOption'}]
 });
 
-module.exports = mongoose.model('Catalog', catalogSchema);
+module.exports.schema = catalogSchema;
+module.exports.model = mongoose.model('Catalog', catalogSchema);

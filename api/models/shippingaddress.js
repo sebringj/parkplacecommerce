@@ -1,4 +1,4 @@
-var mongoose = require('../../lib/mongoose.js');
+var mongoose = require('../lib/mongoose.js');
 
 var shippingAddressSchema = new mongoose.Schema({
 	label : String,
@@ -10,4 +10,5 @@ var shippingAddressSchema = new mongoose.Schema({
 	postalcode : String
 });
 
-module.exports = shippingAddressSchema;
+module.exports.schema = shippingAddressSchema;
+module.exports.model = mongoose.model('ShippingAddress', shippingAddressSchema);

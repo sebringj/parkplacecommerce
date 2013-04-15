@@ -5,4 +5,5 @@ var businessSchema = new mongoose.Schema({
 	domain : String
 });
 
-module.exports = mongoose.model('Business', businessSchema);
+module.exports.schema = businessSchema;
+module.exports.model = mongoose.model('Business', businessSchema);

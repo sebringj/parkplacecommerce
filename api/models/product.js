@@ -1,5 +1,5 @@
 var mongoose = require('../lib/mongoose.js'),
-	attributeSchema = require('./schemas/attribute.js');
+	attributeSchema = require('./attribute.js').schema;
 
 var productSchema = new mongoose.Schema({
 	business : {type: mongoose.Schema.Types.ObjectId, ref: 'Business'},
@@ -13,4 +13,5 @@ var productSchema = new mongoose.Schema({
 	upc : String
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports.schema = productSchema;
+module.exports.model = mongoose.model('Product', productSchema);

@@ -1,11 +1,11 @@
-var models = require('../models');
+var ApiCredential = require('../models/apicredential.js').model;
 exports.get = function(req, res) {
-	models.ApiCredential.find(function(err, apicredentials) {
+	ApiCredential.find(function(err, apicredentials) {
 		res.json(apicredentials);
 	});
 };
 exports.add = function(req, res) {
-	var apicredential = new models.ApiCredential(req.body);
+	var apicredential = new ApiCredential(req.body);
 	apicredential.save(function(err, apicredential) {
 		if (err) {
 			res.json({
@@ -25,7 +25,7 @@ exports.add = function(req, res) {
 exports.update = function(req, res) {
 	var apicredential = req.body;
 	delete apicredential._id;
-	models.ApiCredential.update({_id : req.params.id}, apicredential, function(err) {
+	ApiCredential.update({_id : req.params.id}, apicredential, function(err) {
 		if (err) {
 			res.json({
 				success : false,

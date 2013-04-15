@@ -7,4 +7,5 @@ var paymentOptionSchema = new mongoose.Schema({
 	countries : [String]
 });
 
-module.exports = mongoose.model('PaymentOption', paymentOptionSchema);
+module.exports.schema = paymentOptionSchema;
+module.exports.model = mongoose.model('PaymentOption', paymentOptionSchema);
