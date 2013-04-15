@@ -56,4 +56,4 @@ apiCredentialSchema.statics.check = function(params, callback) {
 };
 
 module.exports.schema = apiCredentialSchema;
-module.exports.model = mongoose.model('ApiCredential', apiCredentialSchema);
+module.exports.model = ApiCredential;
